@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nutritionist/nutritionist-backend/nutritionist-backend.iml" filepath="$PROJECT_DIR$/nutritionist/nutritionist-backend/nutritionist-backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/nutritionistapp.iml" filepath="$PROJECT_DIR$/.idea/nutritionistapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nutritionist/nutritionist-backend/userservice/userservice.iml" filepath="$PROJECT_DIR$/nutritionist/nutritionist-backend/userservice/userservice.iml" />
+    </modules>
+  </component>
+</project>

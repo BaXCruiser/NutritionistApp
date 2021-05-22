@@ -1,0 +1,19 @@
+.home-body{
+    background-image: url("../images/nutritionist2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container-fluid{
+    background-color: rgba(129, 125, 125, 0.6);
+}
+
+.container-fluid img{
+    width:100%;
+}
+
+.section{
+    background-color: rgba(40, 160, 36, 0.6);
+    border-radius: 5px;
+}

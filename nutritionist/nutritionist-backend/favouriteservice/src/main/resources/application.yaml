@@ -1,0 +1,23 @@
+
+server:
+  port: 9009
+spring:
+  application:
+    name: favouriteservice
+  data:
+    mongodb:
+      database: ${MONGO_DB:favouritefood_db}
+      port: ${MONGO_PORT:27017}
+      host: ${MONGO_HOST:localhost}
+
+jwt:
+  secret: {$SECRET_KEY: secret}
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://${EUREKA_SERVER:localhost}:8761/eureka/
+  instance:
+    preferIpAddress: true

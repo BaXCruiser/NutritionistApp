@@ -1,0 +1,10 @@
+.favfood-body{
+    background-image: url("./images/nutritionist2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.favfood-shade{
+    background-color: rgb(131, 130, 130,.5);
+}

@@ -1,0 +1,82 @@
+version: "3.6"
+
+services:
+  api-gateway:
+    build: ./api-gateway
+    image: apigateway:1.0
+    ports:
+      - 8090:8090
+    restart: on-failure
+    depends_on:
+      - service-discovery
+    environment:
+      EUREKA_SERVER: service-discovery
+    networks:
+      - myapp-network
+
+  service-discovery:
+    build: ./service-discovery
+    image: servicediscovery:1.0
+    ports:
+      - 8761:8761
+    restart: on-failure
+    networks:
+      - myapp-network
+
+  userservice:
+    build: ./userservice
+    image: userservice:1.0
+    ports:
+    - 9000:9000
+    restart: on-failure
+    environment:
+      MYSQL_HOST: mysql-db
+      MYSQL_PORT: 3306
+      MYSQL_DB: user_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: lucifer
+      EUREKA_SERVER: service-discovery
+    depends_on:
+      - mysql-db
+      - service-discovery
+    networks:
+      - myapp-network
+
+  favouriteservice:
+    build: ./favouriteservice
+    image: favouriteservice:1.0
+    ports:
+      - 9009:9009
+    restart: on-failure
+    environment:
+      MONGO_DB: favouritefood_db
+      MONGO_PORT: 27017
+      MONGO_HOST: mongo-db
+      EUREKA_SERVER: service-discovery
+    depends_on:
+      - mongo-db
+      - service-discovery
+    networks:
+      - myapp-network
+
+  mysql-db:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: lucifer
+      MYSQL_DATABASE: user_db
+    restart: on-failure
+    networks:
+      - myapp-network
+
+  mongo-db:
+    image: mongo:4.0
+    ports:
+    - 27017:27017
+    restart: on-failure
+    networks:
+      - myapp-network
+
+networks:
+  myapp-network:

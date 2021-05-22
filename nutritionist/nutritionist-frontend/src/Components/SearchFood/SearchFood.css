@@ -1,0 +1,14 @@
+.search-body{
+    min-height: 40vw;
+    background-image: url("./images/nutritionist1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.search-shade{
+    min-height: 40vw;
+    background-color: rgb(131, 130, 130,.5);
+}
+
+
